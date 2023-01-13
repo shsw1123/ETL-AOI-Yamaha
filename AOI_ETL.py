@@ -2,8 +2,8 @@ import pandas as pd
 import glob
 import os
 from datetime import datetime
-rawdata_path = "C:/Users/sahatsawats/Desktop/DATA_AOI/Input/*.csv"
-target_directory = "C:/Users/sahatsawats/Desktop/DATA_AOI/Output"
+rawdata_path = "C:/your desire raw data directory/*.csv"
+target_directory = "C:/your desire finish good data directory"
 
 # Extract csv file type function
 def extract_csv(filetoprocess):
@@ -17,6 +17,7 @@ def extracted():
         filename = os.path.basename(csv_file)
         extracted = pd.concat([extracted,extract_csv(csv_file)],ignore_index=True)
         print("successfully to extract:"+ filename)
+    # Drop useless columns
     extracted.drop(
     ["Group Insp","Detect PosY ","Step Angle","Mark1 No","Distance L Result","Mark1 PosX","Mark1 PosY","Result",
     "Mark1 Block No","Mark1 Result","Mark1 Detect PosX","Mark1 Detect PosY","Mark2 No","Mark2 PosX","Mark2 PosY",
